@@ -32,18 +32,7 @@ I enjoy working on server-side logic, APIs, databases, and understanding how sys
 
 ---
 
-### 📊 GitHub Stats
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=sahfiann&show_icons=true&theme=tokyonight" height="165"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sahfiann&theme=tokyonight" height="165"/>
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sahfiann&layout=compact&theme=tokyonight" height="150"/>
-</p>
-
----
 
 ### 📂 Featured Projects
 
