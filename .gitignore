@@ -1,0 +1,30 @@
+node_modules/
+dist/
+*.exe
+/tmp
+.DS_Store
+backend/file-swap
+backend/server
+
+# Environment and credentials
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+credentials*
+secrets*
+
+# Generated reports and coverage
+coverage/
+*.out
+*.prof
+
+# Editor and OS metadata
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*.swo

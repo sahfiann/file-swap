@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+:root { font-family: "MS Sans Serif", Tahoma, Geneva, sans-serif; color: #111; background: #808080; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: #808080; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+.desktop-shell { min-height: 100dvh; background-color: #008080; background-image: radial-gradient(#159694 1px, transparent 1px); background-size: 4px 4px; padding: 15px; }
+.win95-window, .dialog-window { background: #c0c0c0; border: 2px solid; border-color: #fff #222 #222 #fff; box-shadow: 1px 1px #000, inset 1px 1px #dfdfdf; }
+.win95-window { min-height: calc(100dvh - 30px); display: flex; flex-direction: column; }
+.title-bar { min-height: 30px; background: #000080; color: #fff; display: flex; align-items: center; gap: 7px; padding: 3px 4px; font-size: 14px; letter-spacing: .15px; }
+.title-bar__mark { display: grid; place-items: center; width: 18px; height: 18px; background: #16a535; color: #fff; font: bold 13px "Courier New", monospace; box-shadow: inset -1px -1px #075814, inset 1px 1px #8df19e; }
+.title-bar strong { flex: 1; }
+.window-close { width: 21px; height: 21px; padding: 0 0 3px; background: #c0c0c0; color: #000; font-size: 19px; font-weight: bold; line-height: 13px; border: 2px solid; border-color: #fff #222 #222 #fff; box-shadow: 1px 1px #000; }
+.window-close:active, .win-button:active { border-color: #222 #fff #fff #222; box-shadow: none; transform: translate(1px, 1px); }
+.menu-bar { position:relative; z-index:4; display: flex; min-height: 28px; align-items: center; border-bottom: 1px solid #7f7f7f; box-shadow: 0 1px #fff; padding: 1px 5px; gap: 2px; }
+.menu-item { position:relative; }
+.menu-item, .menu-bar > .menu-item > button { flex: 0 0 auto; }
+.menu-bar > .menu-item { position: relative; z-index: 1; }
+.menu-bar button { padding: 2px 8px; border: 0; background: transparent; font-size: 13px; white-space: nowrap; }
+.menu-bar button:hover { background: #000080; color: #fff; }
+.menu-dropdown { position:absolute; top:23px; left:0; z-index:20; min-width:185px; padding:3px; background:#c0c0c0; border:2px solid; border-color:#fff #222 #222 #fff; box-shadow:2px 2px #000; }.menu-dropdown.right { left:auto; right:0; }.menu-dropdown button { width:100%; min-height:24px; display:flex; align-items:center; justify-content:space-between; padding:3px 20px; text-align:left; white-space:nowrap; }.menu-dropdown button:hover:not(:disabled) { background:#000080; color:#fff; }.menu-dropdown button:disabled { color:#777; cursor:default; }.menu-dropdown kbd { margin-left:25px; font:10px "Courier New", monospace; }.menu-dropdown hr { margin:3px 1px; border:0; border-top:1px solid #7f7f7f; border-bottom:1px solid #fff; }
+.menu-status { margin-left: auto; flex: 0 0 auto; font: 11px "Courier New", monospace; color: #126426; white-space: nowrap; }
+.menu-status i, .rail-node i { display: inline-block; width: 7px; height: 7px; background: #15a536; border: 1px solid #006b17; }
+.workspace { flex: 1; display: flex; min-height: 0; }
+.side-rail { width: 190px; background: #b5b5b5; border-right: 2px solid #7f7f7f; box-shadow: 1px 0 #fff; padding: 21px 16px; }
+.piper-badge { display: grid; grid-template-columns: 34px 1fr; align-items: center; gap: 0 8px; color: #075d1b; }
+.piper-badge span { grid-row: span 2; display: grid; place-items: center; width: 34px; height: 34px; color: #fff; font: bold 25px "Courier New", monospace; background: #13a134; border: 2px solid #087520; box-shadow: inset 2px 2px #89ec9a, inset -2px -2px #076b1a; }
+.piper-badge b { font-size: 17px; letter-spacing: 1px; }.piper-badge small { font: 8px "Courier New", monospace; color: #222; }.rail-rule { margin: 25px 0 13px; border-top: 1px solid #7d7d7d; border-bottom: 1px solid #fff; }.rail-label { font: bold 10px "Courier New", monospace; color: #555; }.rail-node { font: 10px "Courier New", monospace; white-space: nowrap; }.rail-node i { margin-right: 5px; }.rail-node.dim i { background:#999; border-color:#666; }
+.desktop-content { flex: 1; min-width: 0; padding: clamp(20px, 4vw, 42px); background: #c0c0c0; }
+.desktop-heading { display: flex; justify-content: space-between; align-items: end; max-width: 940px; margin: auto; border-bottom: 2px solid #858585; box-shadow: 0 1px #fff; padding-bottom: 12px; }.desktop-heading p { margin: 0 0 4px; font: 10px "Courier New", monospace; color: #087020; font-weight:bold; }.desktop-heading h1 { margin: 0; font-size: 25px; letter-spacing: -.5px; }.version-stamp { font: 10px "Courier New", monospace; color:#555; }
+.drop-zone { position: relative; max-width: 940px; min-height: 230px; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; margin: 23px auto 28px; background: #fff; border: 3px solid; border-color: #818181 #fff #fff #818181; box-shadow: inset 1px 1px #000, inset -1px -1px #dfdfdf; cursor: pointer; text-align:center; }.drop-zone:hover { background:#f4fff5; }.drop-zone input { position:absolute; opacity:0; inset:0; cursor:pointer; }.drop-zone strong { z-index:1; font: bold 23px "Courier New", monospace; }.drop-zone em { z-index:1; margin-top:8px; font: 12px "Courier New", monospace; color:#555; font-style:normal; }.drop-icon { z-index:1; margin-bottom:7px; color:#159d35; font:bold 33px "Courier New", monospace; }.drop-note { z-index:1; position:absolute; bottom:12px; font:9px "Courier New", monospace; color:#087020; }.drop-dots { position:absolute; inset:13px; border:1px dashed #b1b1b1; }
+.tool-caption { max-width:940px; margin:0 auto 12px; display:flex; justify-content:space-between; font:10px "Courier New", monospace; color:#555; }.tool-caption b { color:#087020; }.tool-grid { max-width:940px; margin:auto; display:grid; grid-template-columns:repeat(5, 1fr); gap:10px; }.desktop-icon { min-height:132px; border:0; background:transparent; display:flex; align-items:center; flex-direction:column; gap:9px; padding:11px 3px; font:12px "Courier New", monospace; }.desktop-icon:hover, .desktop-icon:focus-visible { color:#fff; background:#000080; outline:0; }.pixel-art { position:relative; width:53px; height:47px; display:grid; place-items:end center; padding-bottom:4px; color:#fff; font:bold 8px "Courier New", monospace; background:#fff; border:2px solid #111; box-shadow:4px 4px 0 #777; }.pixel-art.document { width:47px; height:56px; align-items:end; overflow:visible; padding:0 0 6px; background:#f8f8f8; border-color:#111 #666 #666 #111; box-shadow:3px 3px 0 #777, inset -2px -2px #d9d9d9; color:#000080; }.pixel-art.document:before { content:""; position:absolute; top:-2px; right:-2px; width:13px; height:13px; background:linear-gradient(135deg,#c0c0c0 0 47%,#fff 48% 100%); border-left:2px solid #111; border-bottom:2px solid #111; }.pixel-art.document:after { content:""; position:absolute; z-index:0; left:7px; right:6px; bottom:20px; height:2px; background:#159d35; box-shadow:0 5px #159d35, 0 10px #000080; }.pixel-art.document i { position:relative; z-index:1; display:block; min-width:28px; padding:2px 3px; background:#000080; color:#fff; border:1px solid #000; font:bold 8px "Courier New", monospace; letter-spacing:-.5px; }.pixel-art.document em { position:absolute; z-index:2; top:5px; left:5px; display:grid; place-items:center; width:13px; height:13px; color:#fff; background:#159d35; border:1px solid #075919; font:bold 10px "Courier New",monospace; font-style:normal; }.pixel-art.docx-document { color:#159d35; }.pixel-art.docx-document i { background:#159d35; border-color:#075919; }.shortcut-overlay { position:absolute; z-index:4; bottom:-4px; left:-8px; display:grid; place-items:center; width:17px; height:17px; padding:0 0 2px 1px; color:#000080; background:#fff; border:1px solid #000; box-shadow:1px 1px #777; font:bold 15px "Courier New",monospace; line-height:1; }.pixel-art.folder { background:#e3b62b; border-color:#9b7504; }.pixel-art.folder:before { content:""; position:absolute; top:-7px; left:3px; width:25px; height:8px; background:#e3b62b; border:2px solid #9b7504; border-bottom:0; }.pixel-art.chip { background:#159d35; border:6px solid #075919; box-shadow:0 0 0 2px #159d35, 4px 4px 0 #777; }.pixel-art.scan { background:linear-gradient(#fff 0 30%,#0d9c2b 31% 38%,#fff 39% 65%,#0d9c2b 66% 73%,#fff 74%); }.console-preview { max-width:940px; margin:32px auto 0; border:2px solid; border-color:#888 #fff #fff #888; background:#000; }.terminal-title { background:#222; color:#eee; padding:5px 8px; font:10px "Courier New", monospace; }.terminal-title span { color:#19b63e; }.terminal-copy { padding:12px; color:#20c643; font:12px "Courier New", monospace; }.cursor { animation:blink .7s step-end infinite; } @keyframes blink { 50% { opacity:0; } }
+.status-bar { display:flex; gap:4px; padding:4px; border-top:1px solid #fff; }.status-bar span { flex:1; min-width:0; padding:3px 6px; border:1px solid; border-color:#888 #fff #fff #888; font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }.status-bar span:last-child { flex:0 0 auto; }
+.modal-layer { position:fixed; z-index:10; inset:0; display:grid; place-items:center; padding:18px; background:rgba(0,0,0,.34); }.dialog-window { width:min(530px, 100%); box-shadow: 9px 10px 0 rgba(0,0,0,.42), 1px 1px #000; }.dialog-body { padding:21px; }.file-summary { display:flex; align-items:center; gap:14px; margin-bottom:22px; }.large-file-icon { display:grid; place-items:end center; height:52px; width:42px; padding-bottom:4px; color:#fff; background:#fff; border:2px solid #111; box-shadow:4px 4px #777; font:bold 10px "Courier New", monospace; }.file-summary strong { display:block; margin-bottom:5px; font-size:14px; }.file-summary code { display:block; font:11px "Courier New", monospace; line-height:1.55; color:#414141; }.group-box { margin:0; padding:13px 15px 9px; border:2px solid; border-color:#808080 #fff #fff #808080; }.group-box legend { padding:0 5px; font-weight:bold; font-size:12px; }.group-box label { display:grid; grid-template-columns:13px 1fr; gap:4px 8px; align-items:center; margin:9px 0; font-size:13px; cursor:pointer; }.group-box input { position:absolute; opacity:0; }.group-box label > span { width:13px; height:13px; background:#fff; border:2px solid; border-color:#888 #fff #fff #888; box-shadow:inset 1px 1px #000; }.group-box input:checked + span:after { content:""; display:block; width:5px; height:5px; margin:2px; background:#159d35; }.group-box input[type=checkbox]:checked + span:after { width:7px; height:7px; margin:1px; }.group-box small { grid-column:2; color:#555; font-size:10px; }.dialog-actions { display:flex; justify-content:flex-end; gap:8px; margin-top:20px; }.win-button { min-width:96px; min-height:32px; background:#c0c0c0; border:2px solid; border-color:#fff #222 #222 #fff; box-shadow:1px 1px #000; padding:5px 12px; font-weight:bold; font-size:12px; text-decoration:none; color:#111; text-align:center; }.win-button.primary { min-width:185px; border-color:#fff #075618 #075618 #fff; outline:2px solid #159d35; outline-offset:-5px; }.win-button.primary b { display:inline-grid; place-items:center; width:15px; height:15px; margin-right:3px; background:#159d35; color:#fff; }.dialog-error { color:#9c1515; font-size:12px; margin:12px 0 0; }
+.config-dialog { max-height: calc(100dvh - 36px); display: flex; flex-direction: column; }.config-dialog .dialog-body { min-height: 0; overflow-y: auto; }.config-dialog .dialog-actions { position: sticky; bottom: -21px; margin: 16px 0 -21px; padding: 12px 0 21px; background: #c0c0c0; }
+.terminal-window { width:min(650px,100%); }.terminal-body { min-height:234px; padding:21px; background:#000; color:#24c84c; font:13px/1.85 "Courier New", monospace; }.terminal-body p { opacity:0; margin:0; animation:terminal-in .1s forwards; }.terminal-body .terminal-active { opacity:1; margin-top:6px; }.terminal-footer { display:flex; justify-content:space-between; padding:5px 7px; font:10px "Courier New", monospace; color:#555; }.terminal-footer span:last-child { color:#0b8327; } @keyframes terminal-in { to { opacity:1; } }
+.video-metrics { display:grid; gap:5px; margin:10px 0; padding:8px; border:1px solid #1b5b2a; color:#b9f5c5; background:#07170c; font:12px "Courier New", monospace; }
+.video-metrics strong { color:#fff; font-size:15px; }
+.video-metrics b { color:#7dff96; }
+.video-metrics code { color:#7dff96; font:14px "Courier New", monospace; letter-spacing:1px; }
+.video-benchmark { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin:10px 0; padding:8px; border:1px solid #1b5b2a; font:11px "Courier New", monospace; }
+.video-benchmark>b { grid-column:1/-1; color:#7dff96; letter-spacing:.08em; }
+.video-benchmark div { display:grid; gap:3px; padding:7px; background:rgba(255,255,255,.04); }
+.video-benchmark span,.video-benchmark small { color:rgba(255,255,255,.58); font-size:10px; }
+.capability-note { display:block; color:rgba(255,255,255,.58); margin-top:6px; }
+@media (max-width:640px) { .video-benchmark { grid-template-columns:1fr; } }
+.terminal-live { opacity: 1!important; animation: none!important; }.terminal-progress, .console-progress { height: 12px; margin-top: 10px; border: 1px solid #24c84c; padding: 2px; }.terminal-progress span, .console-progress span { display: block; height: 100%; background: #24c84c; transition: width .25s ease-out; }.console-progress { height: 8px; margin-top: 8px; }.terminal-cancel { min-width: auto; min-height: 24px; padding: 2px 7px; font-size: 10px; font-weight: normal; }
+.success-dialog { width:min(477px, 100%); }.success-body { display:flex; gap:17px; padding:23px 23px 17px; align-items:center; }.info-bubble { display:grid; flex:0 0 auto; place-items:center; width:40px; height:40px; border-radius:50%; background:#159d35; color:white; font:bold 31px Georgia,serif; border:2px solid #075a1b; box-shadow:inset 2px 2px #7fec92; }.success-body h2 { margin:0 0 4px; font-size:16px; }.success-body p { margin:0; font-size:12px; line-height:1.4; }.result-panel { margin:0 23px; background:#fff; border:2px solid; border-color:#818181 #fff #fff #818181; box-shadow:inset 1px 1px #000; padding:11px 13px; }.result-label { color:#087020; font:bold 9px "Courier New", monospace; border-bottom:1px solid #ddd; padding-bottom:7px; }.size-readout { display:flex; align-items:center; gap:18px; margin-top:10px; font:11px "Courier New", monospace; }.size-readout b { font-size:17px; }.size-readout i { font-style:normal; color:#159d35; font-size:22px; }.size-readout .green b { color:#087e26; }.savings { margin-top:11px; color:#087020; font:11px "Courier New", monospace; font-weight:bold; }.quality-note { margin:9px 0 0; padding-top:8px; border-top:1px dotted #888; color:#505050; font:9px/1.4 "Courier New",monospace; }.success-actions { padding:0 23px 22px; }.download { display:inline-flex; align-items:center; justify-content:center; }
+.about-dialog { width:min(460px,100%); }.about-body { display:flex; gap:17px; padding:24px 24px 10px; }.about-logo { display:grid; place-items:center; flex:0 0 auto; width:58px; height:58px; color:#fff; background:#159d35; border:2px solid #075919; box-shadow:inset 3px 3px #8fec9d, inset -3px -3px #075919; font:bold 40px "Courier New",monospace; }.about-body h2 { margin:0 0 4px; font-size:15px; }.about-body p { margin:4px 0; font-size:12px; }.about-body code { font:10px "Courier New",monospace; color:#087020; }.about-copy { margin-top:15px!important; color:#555; line-height:1.45; }.about-actions { padding:0 24px 22px; }
+@media (max-width: 680px) { .desktop-shell { padding:5px; }.win95-window { min-height:calc(100dvh - 10px); }.side-rail { display:none; }.desktop-content { padding:20px 13px; }.desktop-heading h1 { font-size:21px; }.version-stamp { display:none; }.drop-zone { min-height:210px; }.drop-zone strong { font-size:17px; }.tool-grid { grid-template-columns:repeat(2, 1fr); }.desktop-icon { min-height:108px; }.menu-status { display:none; }.menu-bar { gap:0; }.menu-bar button { padding:2px 6px; }.status-bar span:nth-child(2) { display:none; }.terminal-footer { gap:6px; font-size:8px; }.success-actions, .dialog-actions { flex-wrap:wrap; }.success-actions .win-button, .dialog-actions .win-button { flex:1; }.group-box { padding-left:10px; padding-right:10px; } .modal-layer { padding:8px; align-items:center; }.config-dialog { max-height:calc(100dvh - 16px); }.config-dialog .dialog-body { padding:14px; }.config-dialog .dialog-actions { flex-direction:column-reverse; gap:8px; margin-top:12px; padding:10px 0 14px; margin-bottom:-14px; }.config-dialog .dialog-actions .win-button { width:100%; flex:0 0 auto; } }
+.format-box { margin-top: 13px; }.option-disabled { color:#777; cursor:not-allowed!important; }.option-disabled small { color:#888; }
+
+/* Keep the legacy desktop surface usable on narrow touch screens. */
+html, body, #root { min-width: 320px; width: 100%; }
+html, body { overflow-x: hidden; }
+.title-bar strong { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.menu-bar { overflow: visible; flex-wrap: nowrap; }
+.menu-bar button, .win-button, .desktop-icon { touch-action: manipulation; }
+.desktop-heading > div { min-width: 0; }
+.desktop-heading h1, .desktop-heading p { overflow-wrap: anywhere; }
+.tool-caption { gap: 12px; }
+.tool-caption span, .tool-caption b { min-width: 0; overflow-wrap: anywhere; }
+.desktop-icon span:last-child { max-width: 100%; overflow-wrap: anywhere; text-align: center; }
+.file-summary > div { min-width: 0; }
+.file-summary strong { overflow-wrap: anywhere; }
+.dialog-window { max-width: 100%; }
+.modal-layer { overflow-y: auto; overscroll-behavior: contain; }
+
+@media (max-width: 1024px) and (min-width: 681px) {
+  .menu-bar { gap: 1px; padding-left: 4px; padding-right: 4px; }
+  .menu-bar button { padding-left: 7px; padding-right: 7px; }
+  .menu-status { display: none; }
+}
+
+@media (max-width: 680px) {
+  .desktop-shell { width: 100%; min-height: 100dvh; padding: max(4px, env(safe-area-inset-top)) max(4px, env(safe-area-inset-right)) max(4px, env(safe-area-inset-bottom)) max(4px, env(safe-area-inset-left)); }
+  .win95-window { width: 100%; min-width: 0; min-height: calc(100dvh - 8px); }
+  .title-bar { min-height: 34px; padding: 5px; }
+  .title-bar strong { font-size: 12px; }
+  .title-bar__mark { flex: 0 0 18px; }
+  .window-close { flex: 0 0 24px; width: 24px; height: 24px; }
+  .menu-bar { width: 100%; min-height: 34px; padding: 2px 3px; gap: 0; overflow: visible; }
+  .menu-bar button { min-height: 29px; padding: 4px 6px; font-size: 12px; }
+  .menu-status { display: none; }
+  .menu-dropdown { position: fixed; top: 72px; left: 8px; right: 8px; width: auto; min-width: 0; }
+  .menu-dropdown.right { left: 8px; right: 8px; }
+  .desktop-content { width: 100%; padding: 16px 10px 20px; }
+  .desktop-heading { align-items: flex-start; gap: 8px; padding-bottom: 10px; }
+  .desktop-heading h1 { font-size: clamp(19px, 6vw, 24px); }
+  .desktop-heading p { font-size: 9px; }
+  .drop-zone { margin: 16px auto 22px; min-height: 188px; }
+  .drop-zone strong { max-width: 90%; font-size: clamp(15px, 4.8vw, 19px); overflow-wrap: anywhere; }
+  .drop-zone em { max-width: 90%; font-size: 11px; }
+  .drop-note { max-width: 90%; text-align: center; }
+  .tool-caption { align-items: flex-start; flex-direction: column; gap: 4px; margin-bottom: 8px; }
+  .tool-grid { gap: 6px; }
+  .desktop-icon { min-height: 104px; padding: 10px 2px; font-size: 10px; }
+  .console-preview { margin-top: 24px; }
+  .terminal-copy { overflow-wrap: anywhere; }
+  .status-bar { gap: 2px; padding: 4px; }
+  .status-bar span { font-size: 9px; }
+  .status-bar span:first-child { flex: 0 0 auto; }
+  .dialog-window { width: 100%; }
+  .dialog-body { padding: 15px; }
+  .file-summary { align-items: flex-start; gap: 10px; margin-bottom: 15px; }
+  .file-summary code { font-size: 9px; overflow-wrap: anywhere; }
+  .group-box { padding: 11px 10px 7px; }
+  .group-box label { grid-template-columns: 16px minmax(0, 1fr); gap: 4px 7px; margin: 10px 0; font-size: 12px; }
+  .group-box label > span { width: 16px; height: 16px; }
+  .group-box input:checked + span:after { width: 6px; height: 6px; margin: 3px; }
+  .group-box small { font-size: 9px; line-height: 1.3; }
+  .success-body { padding: 18px 15px 14px; gap: 11px; }
+  .success-body p { font-size: 11px; }
+  .result-panel { margin: 0 15px; padding: 10px; }
+  .size-readout { justify-content: space-between; gap: 7px; }
+  .size-readout b { font-size: 15px; }
+  .success-actions { padding: 0 15px 16px; }
+  .success-actions .win-button { min-height: 38px; }
+  .about-body { padding: 18px 15px 8px; gap: 11px; }
+  .about-body h2 { font-size: 13px; overflow-wrap: anywhere; }
+  .about-body p { font-size: 11px; }
+}
+
+@media (max-width: 380px) {
+  .desktop-shell { padding: 3px; }
+  .title-bar strong { font-size: 10px; }
+  .menu-bar button { padding-left: 5px; padding-right: 5px; font-size: 11px; }
+  .desktop-content { padding-left: 8px; padding-right: 8px; }
+  .drop-zone { min-height: 170px; }
+  .drop-icon { font-size: 28px; }
+  .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .desktop-icon { min-height: 96px; }
+  .pixel-art.document { transform: scale(.9); transform-origin: center bottom; }
+  .dialog-body { padding: 11px; }
+  .config-dialog .dialog-actions .win-button { font-size: 11px; }
+  .size-readout { font-size: 9px; }
+  .size-readout b { font-size: 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor, .terminal-body p { animation: none; opacity: 1; }
+}
